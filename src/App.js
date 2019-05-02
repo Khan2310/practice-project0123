@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import styled from "styled-components";
 import DemoComponent from "./component/demoComponent";
 import Component2 from "./component/component2";
 import Component3 from "./component/component3";
@@ -12,11 +13,17 @@ class App extends Component {
       <Router>
         <div className="App">
           <div>
-            <Link to="/">DemoComponent</Link>
+            <Button>
+              <Link to="/">DemoComponent</Link>
+            </Button>
             <br />
-            <Link to="/compo2/">Component-2</Link>
+            <Button>
+              <Link to="/compo2/">Component-2</Link>
+            </Button>
             <br />
-            <Link to="/compo3/">Component-3</Link>
+            <Button>
+              <Link to="/compo3/">Component-3</Link>
+            </Button>
           </div>
           <Switch>
             <Route path="/" exact component={DemoComponent} />
@@ -29,5 +36,15 @@ class App extends Component {
     );
   }
 }
+
+const Button = styled.button`
+  background: yellow;
+  text-decoration: none;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid red;
+  border-radius: 3px;
+`;
 
 export default App;

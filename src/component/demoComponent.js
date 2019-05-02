@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 import axios from "axios";
 
 export default class DemoComponent extends Component {
@@ -20,8 +21,10 @@ export default class DemoComponent extends Component {
         return (
           <div className="post card" key={post.id}>
             <div className="card-content">
-              <span className="card-title">{post.title}</span>
-              <p>{post.body}</p>
+              <span className="card-title">
+                <PostTitle>{post.title}</PostTitle>
+              </span>
+              <PostBody>{post.body}</PostBody>
             </div>
           </div>
         );
@@ -32,11 +35,40 @@ export default class DemoComponent extends Component {
 
     return (
       <div>
-        <div className="container">
-          <h4 className="center">Demo component</h4>
+        <PostList className="container">
+          <Title className="center">Demo component</Title>
           {postList}
-        </div>
+        </PostList>
+        <PostEnd>
+          ########################################################################################################################
+        </PostEnd>
       </div>
     );
   }
 }
+
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: #6c5ce7;
+`;
+
+const PostList = styled.div`
+  text-align: center;
+`;
+
+const PostTitle = styled.h4`
+  font-size: 1em;
+  color: #30336b;
+`;
+
+const PostBody = styled.p`
+  font-size: 1em;
+  color: #130f40;
+`;
+
+const PostEnd = styled.p`
+  text-align: center;
+  font-size: 1em;
+  color: #22a6b3;
+`;
